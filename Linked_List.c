@@ -12,11 +12,14 @@ typedef struct node{
 node *create()
 {
 	int data;
+	printf("\n-----------------------------------------------------------------------\n");
 	printf("\nEnter data:\t");
 	scanf("%d",&data);
+	printf("\n-----------------------------------------------------------------------\n");
 	node* new_node=(node*)malloc(sizeof(node));
 	new_node->data=data;
 	new_node->next=NULL;
+	
 	return new_node;
 
 }
@@ -34,7 +37,7 @@ node* Insert_Beginning(node* head)
 
 
 // O(1) method to append a node at the end
-node * Insert_End(node** head, node** rear)
+node * Insert_End(node* head, node** rear)
 {
 	//create a new node
 	node *new_node=create();
@@ -54,13 +57,14 @@ node * Insert_End(node** head, node** rear)
 //Function to display the linked list
 void Display(node * np)
 {
-	printf("\n\n");
+	printf("\n-----------------------------------------------------------------------\n");
 	while(np!=NULL)
 	{
-		printf("%d ->",np->data);
+		printf("%d->",np->data);
 		np=np->next;
 	}
 	printf("NULL");
+	printf("\n-----------------------------------------------------------------------\n");
 }
 
 
@@ -72,9 +76,9 @@ int main(int argc, char const *argv[])
 	int n,flag=1;
 	while(flag)
 	{
-		printf("\nEnter your choice:\n1.Append Data\n2.Prepend data\n3.Display\n5.Exit\n");
+		
+		printf("\nEnter your choice:\n1.Append Data\n2.Prepend data\n3.Display\n4.Exit\n");
 		scanf("%d",&n);
-		printf("\n-----------------------------------------------------------------------\n\n");
 		switch(n)
 		{
 			case 1:start=Insert_End(start,&rear);break;
